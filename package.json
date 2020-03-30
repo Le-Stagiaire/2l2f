@@ -1,0 +1,15 @@
+{
+  "name": "2l2f",
+  "version": "1.0.0",
+  "description": "Local Lazy Food Finder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Le-Stagiaire",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "node-html-parser": "^1.2.13"
+  }
+}
