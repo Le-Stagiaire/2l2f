@@ -27,7 +27,7 @@ export default function Recipes({ ingredients }) {
   }
 
   if (!ingredients.length) {
-    return <div>Veuillez choisir une liste dʼingrédients puis lancer la recherche</div>
+    return <div className="Recipes">Veuillez choisir une liste dʼingrédients puis lancer la recherche</div>
   }
   return (
     <div className="Recipes">
