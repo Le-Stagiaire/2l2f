@@ -140,7 +140,7 @@ export const products = {
       "Navet",
       "Oignon",
       "Petit pois",
-      "Pomme de terre primeur",
+      "Pomme de terre",
       "Radis",
       "Tomate",
       "Épinard"
@@ -287,7 +287,7 @@ export const products = {
       "Raisin"
     ]
   },
-  8🍇: {
+  8: {
     vegetables: [
       "Ail",
       "Artichaut",
@@ -457,4 +457,19 @@ export const products = {
       "Pomme"
     ]
   },
+}
+
+export const fullMonthLabel = {
+  0: 'janvier',
+  1: 'février',
+  2: 'mars',
+  3: 'avril',
+  4: 'mai',
+  5: 'juin',
+  6: 'juillet',
+  7: 'août',
+  8: 'septembre',
+  9: 'octobre',
+  10: 'novembre',
+  11: 'décembre'
 }

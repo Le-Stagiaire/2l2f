@@ -1,0 +1,21 @@
+.SearchForm {
+
+  flex: 0 1 30%;
+
+  & form {
+    display: flex;
+    flex-flow: column;
+
+    & :nth-child(1) {
+      order: 2
+    }
+
+    & :nth-child(2) {
+      order: 3
+    }
+
+    & [type="submit"] {
+      order: 1;
+    }
+  }
+}
