@@ -1,6 +1,6 @@
 .SearchForm {
-
-  flex: 0 1 40%;
+  flex: 0 1 30%;
+  padding: 50px;
 
   & form {
     display: flex;
@@ -16,6 +16,29 @@
 
     & [type="submit"] {
       order: 1;
+      padding:0.35em 1.2em;
+      border:0.1em solid white;
+      margin:0 0.3em 0.3em 0;
+      border-radius: 0.5em;
+      box-sizing: border-box;
+      text-decoration:none;
+      color: #FFFFFF;
+      text-align: center;
+      transition: all 0.2s;
+      font-size: 13pt;
+      cursor: pointer;
+
+      &:hover {
+        color: white;
+        background-color: #6B8E23;
+      }
+    }
+
+    @media all and (max-width:30em) {
+      & [type="submit"] {
+        display:block;
+        margin:0.4em auto;
+      }
     }
   }
 }

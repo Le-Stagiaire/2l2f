@@ -1,0 +1,30 @@
+.RecipeDetail {
+  padding: 10px;
+
+  &-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  &-tags {
+    list-style-type: none;
+    li {
+      border: 1px solid grey;
+      display: inline;
+      margin-right: 10px;
+      padding: 0.5em;
+    }
+  }
+
+  &-content {
+    display: flex;
+  }
+
+  &-ingredients {
+    flex: 0 1 30%;
+  }
+
+  &-preparation {
+    flex-grow: 1;
+  }
+}

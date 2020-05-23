@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { cn } from '@bem-react/classname';
 
 import { products } from './dataProvider/products';
 import { fullMonthLabel } from './dataProvider/products';
+import Box from './Box';
 
 import './SearchForm.scss';
+
+const b = cn('SearchForm');
 
 export default function SearchForm({ onSubmit }) {
 
@@ -40,7 +44,7 @@ export default function SearchForm({ onSubmit }) {
   const currentMonth = new Date().getMonth();
   const seasonalFood = products[currentMonth];
   return (
-    <div className="SearchForm">
+    <Box className={b()}>
       <header>
         <h2>Voici les produits de saison pour le mois de {fullMonthLabel[currentMonth]}</h2>
       </header>
@@ -50,7 +54,7 @@ export default function SearchForm({ onSubmit }) {
           onSubmit(chosenIngredients.ingredients);
         }}
       >
-        <div className="SearchForm__subpart">
+        <div className={b('subpart')}>
           <h2>Légumes ({chosenIngredients['vegetables'].length})</h2>
           {seasonalFood.vegetables.map(vegetable =>
             <div key={vegetable}>
@@ -64,7 +68,7 @@ export default function SearchForm({ onSubmit }) {
             </div>
           )}
         </div>
-        <div className="SearchForm__subpart">
+        <div className={b('subpart')}>
           <h2>Fruits ({chosenIngredients['fruits'].length})</h2>
           {seasonalFood.fruits.map(fruit =>
             <div key={fruit}>
@@ -80,6 +84,6 @@ export default function SearchForm({ onSubmit }) {
         </div>
         <input type="submit" value="Rechercher avec ces ingrédients" />
       </form>
-    </div>
+    </Box>
   )
 }

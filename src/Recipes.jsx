@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { cn } from '@bem-react/classname';
 import axios from "axios";
 
 import Recipe from './Recipe';
+import Loading from './Loading';
+import Box from './Box';
+
 import './Recipes.scss';
+
+const b = cn('Recipes');
 
 export default function Recipes({ ingredients }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -27,18 +33,28 @@ export default function Recipes({ ingredients }) {
   }
 
   if (!ingredients.length) {
-    return <div className="Recipes">Veuillez choisir une liste dʼingrédients puis lancer la recherche</div>
+    return (
+      <Box className={b()}>
+        <p className={b('empty-search')}>
+          Veuillez choisir une liste dʼingrédients puis lancer la recherche.
+        </p>
+      </Box>
+    )
   }
   return (
-    <div className="Recipes">
-      <h2>Recettes avec les ingrédients « {ingredients.join(', ')} » :</h2>
+    <Box className={b()}>
+      <h2 className={b('title')}>
+        Recettes avec les ingrédients « {ingredients.join(', ')} »
+      </h2>
       {
         isLoading
-        ? 'Je cherche wesh'
+        ? <Loading />
         : content.length
-          ? <div>{content.map(recipe => <Recipe recipe={recipe} />)}</div>
+          ? (<div className={b('results')}>
+              {content.map(recipe => <Recipe key={recipe.detail} recipe={recipe} />)}
+            </div>)
           : 'Jʼai rien trouvé chef'
       }
-    </div>
+    </Box>
   )
 }

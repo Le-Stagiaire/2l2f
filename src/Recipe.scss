@@ -1,0 +1,25 @@
+.Recipe {
+  width: 70%;
+  margin: 10px;
+
+  &-detail {
+    display: flex;
+    flex-direction: row;
+    color: black;
+    text-decoration: none;
+  }
+
+  &-picture {
+    flex: 0 1 20%;
+    order: 1;
+
+    img {
+      max-width: 350px;
+    }
+  }
+
+  &-content {
+    margin-left: 50px;
+    order: 2;
+  }
+}

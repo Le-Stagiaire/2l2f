@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { cn } from '@bem-react/classname';
 
 import SearchForm from './SearchForm';
 import Recipes from './Recipes';
-import SiteHeader from './SiteHeader';
 
 import './Home.scss';
+
+const b = cn('Home')
 
 export default function Home() {
   const [searchIngredients, setSearchIngredients] = useState([]);
@@ -14,12 +16,9 @@ export default function Home() {
   }
 
   return (
-    <div className="Home">
-      <SiteHeader />
-      <main className="Home__main">
-        <SearchForm onSubmit={handleSubmit} />
-        <Recipes ingredients={searchIngredients} />
-      </main>
+    <div className={b()}>
+      <SearchForm onSubmit={handleSubmit} />
+      <Recipes ingredients={searchIngredients} />
     </div>
   )
 }

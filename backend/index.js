@@ -8,6 +8,11 @@ const cors = require('koa-cors');
 
 const app = module.exports = new Koa();
 
+// Can be useful to debug
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 const PORT = 5000;
 
 const router = new Router();
@@ -22,11 +27,10 @@ app.use(mount("/", static_pages));
 app.use(cors());
 
 router.post("/api/test", koaBody(), async ctx => {
-  const search = "https://www.marmiton.org/recettes/recherche.aspx";
   const parser = new MarmitonParser();
   const { ingredients } = ctx.request.body;
   const recipes = await axios.get(
-    search,
+    "https://www.marmiton.org/recettes/recherche.aspx",
     {
       params: {
         type: 'season',
@@ -36,6 +40,16 @@ router.post("/api/test", koaBody(), async ctx => {
   ).then(response => parser.parseSearch(response.data));
   ctx.body = recipes;
 });
+
+router.get("/api/detail", koaBody(), async ctx => {
+  const parser = new MarmitonParser();
+  const { detail } = ctx.request.query;
+  const recipe = await axios.get(
+    `https://www.marmiton.org/recettes/recette_${detail}.aspx`,
+  ).then(response => parser.parseDetail(response.data));
+  console.log(recipe);
+  ctx.body = recipe;
+})
 
 app.use(router.routes());
 
