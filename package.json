@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@bem-react/classname": "^1.5.8",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "create-react-app": "^3.4.1",
     "json-loader": "^0.5.7",
     "koa": "^2.11.0",
